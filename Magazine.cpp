@@ -1,12 +1,12 @@
 #include "Magazine.h"
-
+// sets up the magazine with title and issue number
 Magazine::Magazine(string t, string i) {
     title = t;
     issue = i;
     isBorrowed = false;
     dueDate = 0;
 }
-
+// prints magazine info, shows due date if borrowed
 void Magazine::display() {
     cout << "Magazine: " << title
          << ", Issue: " << issue
@@ -15,7 +15,7 @@ void Magazine::display() {
         cout << "Due date: " << ctime(&dueDate);
     }
 }
-
+// borrows the magazine if its available
 void Magazine::borrowMagazine(int loanDays) {
     if (!isBorrowed) {
         isBorrowed = true;
@@ -26,7 +26,7 @@ void Magazine::borrowMagazine(int loanDays) {
         cout << "Magazine is already borrowed." << endl;
     }
 }
-
+// returns the magazine and clears the due date
 void Magazine::returnMagazine() {
     if (isBorrowed) {
         isBorrowed = false;
